@@ -1,0 +1,2 @@
+# Frozen snapshots and evaluation evidence use byte-level hashes.
+* -text

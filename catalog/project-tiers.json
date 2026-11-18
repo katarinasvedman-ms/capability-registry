@@ -1,0 +1,4 @@
+{
+  "general": ["https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills"],
+  "privileged": ["https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills-privileged"]
+}

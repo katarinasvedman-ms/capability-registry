@@ -1,0 +1,7 @@
+version: 1
+approved_status: approved
+active_lifecycle: active
+permitted_risk_tiers: [general, privileged]
+side_effecting_operations: [write, handoff]
+approval_required_for_privileged_side_effects: true
+lease_privileged_reads: true

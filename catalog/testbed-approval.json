@@ -1,0 +1,20 @@
+{
+  "reviewer": "katarina.svedman",
+  "approved_at": "2026-11-16T11:40:31Z",
+  "approval_scope": "testbed",
+  "skills": "All ten captured factory skills",
+  "frontdoor": {
+    "operations.order_hardware": "H2 domain-filter parity and H3 authorization, approval and idempotency envelope",
+    "operations.open_expenses": "H3 unchanged non-MCP handoff regression"
+  },
+  "mocks": {
+    "mock.get_build_status": "H3 read tool",
+    "mock.create_ticket": "H3 write tool; preserve the source Invoker's stricter mandatory confirmation even though the remote mock does not require it",
+    "mock.deploy_release": "H3 exact-input approval before a write tool"
+  },
+  "risk": "General fixtures except mock.deploy_release, explicitly classified privileged by the revised H4 authorization; write alone does not imply privileged.",
+  "risk_tiers": {
+    "mock.deploy_release": "privileged"
+  },
+  "owner": "Preserve source team names; absent source ownership remains unassigned."
+}

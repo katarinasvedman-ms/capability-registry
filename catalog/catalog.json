@@ -1,0 +1,1363 @@
+[
+  {
+    "id": "api-development",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://api-development/SKILL.md"
+    },
+    "name": "api-development",
+    "description": "Design, implement, review, or test an HTTP API contract change, including validation, errors, and compatibility. Use for API tasks with an evidenced API stack.",
+    "examples": [
+      "Plan an optional filter on an existing order API."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer",
+      "tester"
+    ],
+    "technologies": [
+      "api",
+      {
+        "name": "api",
+        "constraint": "*"
+      },
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "api"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "architecture-analysis",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://architecture-analysis/SKILL.md"
+    },
+    "name": "architecture-analysis",
+    "description": "Analyze boundaries, dependencies, and change impact in an existing application before proposing structural changes. Use for architecture tasks, not routine syntax fixes.",
+    "examples": [
+      "Map the API-to-database boundary for an order lookup without editing code."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect"
+    ],
+    "technologies": [
+      "*",
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "code-review",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://code-review/SKILL.md"
+    },
+    "name": "code-review",
+    "description": "Review an implementation diff for actionable correctness, regression, and authorization defects. Use for review tasks, not to rewrite unrelated code.",
+    "examples": [
+      "Review a diff that removes an ownership check before updating an order."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "reviewer"
+    ],
+    "technologies": [
+      "*",
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "database-changes",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://database-changes/SKILL.md"
+    },
+    "name": "database-changes",
+    "description": "Plan, implement, review, or test SQL Server schema and query changes with data safety and compatibility. Use for database tasks, not unrelated source-only changes.",
+    "examples": [
+      "Plan adding a nullable order note in SQL Server with old readers still active."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer",
+      "tester"
+    ],
+    "technologies": [
+      "sqlserver",
+      {
+        "name": "sqlserver",
+        "constraint": "*"
+      },
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "database"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "dotnet-development",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.3",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://dotnet-development/SKILL.md"
+    },
+    "name": "dotnet-development",
+    "description": "Implement, inspect, review, or test C# and .NET changes using the repository's target framework and conventions. Use when project files establish .NET, not for Java or Python tasks.",
+    "examples": [
+      "Propose a minimal .NET order lookup validation fix."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer",
+      "tester"
+    ],
+    "technologies": [
+      "dotnet",
+      {
+        "name": "dotnet",
+        "constraint": "*"
+      },
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "implementation-planning",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://implementation-planning/SKILL.md"
+    },
+    "name": "implementation-planning",
+    "description": "Turn an approved change request and repository evidence into an ordered, testable implementation plan. Use before implementation; do not activate for unrelated reporting.",
+    "examples": [
+      "Plan adding an optional API field while retaining existing callers."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "planner"
+    ],
+    "technologies": [
+      "*",
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "java-development",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://java-development/SKILL.md"
+    },
+    "name": "java-development",
+    "description": "Implement, review, or test Java changes using existing Maven or Gradle configuration and Java release constraints. Use only when repository evidence establishes Java.",
+    "examples": [
+      "Review a Java method that leaks a JDBC connection using existing Maven constraints."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer",
+      "tester"
+    ],
+    "technologies": [
+      "java",
+      {
+        "name": "java",
+        "constraint": "*"
+      },
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "legacy-code-analysis",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://legacy-code-analysis/SKILL.md"
+    },
+    "name": "legacy-code-analysis",
+    "description": "Recover behavior and safe change seams in legacy or poorly documented code. Use for legacy modernization and characterization, not ordinary new code.",
+    "examples": [
+      "Analyze an old order lookup with undocumented fallback behavior before modernization."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer"
+    ],
+    "technologies": [
+      "*",
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "legacy"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "mock.create_ticket",
+    "type": "tool",
+    "kind": "action",
+    "lifecycle": "active",
+    "domain": "release",
+    "operation": "write",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "create_ticket"
+    },
+    "name": "create ticket",
+    "description": "Synthetic testbed create_ticket; no real side effects.",
+    "examples": [
+      "Test create_ticket"
+    ],
+    "tags": [
+      "mock",
+      "testbed"
+    ],
+    "owner": "unassigned",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [
+      "operations.write"
+    ],
+    "approval_required": true,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "mock.deploy_release",
+    "type": "tool",
+    "kind": "action",
+    "lifecycle": "active",
+    "domain": "release",
+    "operation": "write",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "deploy_release"
+    },
+    "name": "deploy release",
+    "description": "Synthetic testbed deploy_release; no real side effects.",
+    "examples": [
+      "Test deploy_release"
+    ],
+    "tags": [
+      "mock",
+      "testbed"
+    ],
+    "owner": "unassigned",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "release": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      },
+      "required": [
+        "release"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "privileged",
+    "permissions": [
+      "operations.write"
+    ],
+    "approval_required": true,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "mock.get_build_status",
+    "type": "tool",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "release",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "get_build_status"
+    },
+    "name": "get build status",
+    "description": "Synthetic testbed get_build_status; no real side effects.",
+    "examples": [
+      "Test get_build_status"
+    ],
+    "tags": [
+      "mock",
+      "testbed"
+    ],
+    "owner": "unassigned",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "build_id": {
+          "type": "string",
+          "pattern": "^BUILD-[0-9]{1,8}$"
+        }
+      },
+      "required": [
+        "build_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [
+      "operations.read"
+    ],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "operations.admin_report",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "local",
+    "invocation": {
+      "adapter": "local",
+      "tool": "admin_report"
+    },
+    "name": "Admin-only Operations report",
+    "description": "Retrieve the administrative operations summary.",
+    "examples": [
+      "Admin-only report"
+    ],
+    "tags": [
+      "admin"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "operations.admin"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.create_service_request",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "write",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "create_service_request"
+    },
+    "name": "Create a service request",
+    "description": "Create a service request for broken store equipment such as a scanner after confirmation.",
+    "examples": [
+      "Create a service request for a broken store scanner",
+      "Report broken equipment"
+    ],
+    "tags": [
+      "ticket",
+      "repair",
+      "scanner"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "operations.write"
+    ],
+    "approval_required": true,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.get_case",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "get_service_request"
+    },
+    "name": "Get service request or case",
+    "description": "Read a permitted internal case or a service request status.",
+    "examples": [
+      "Show case CASE-1042",
+      "Show the request",
+      "Check service request status"
+    ],
+    "tags": [
+      "ticket",
+      "status"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      },
+      "required": [
+        "case_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "operations.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.get_hardware_order",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "get_hardware_order"
+    },
+    "name": "Get hardware order",
+    "description": "Read the signed-in employee's previously submitted hardware order.",
+    "examples": [
+      "Show my laptop order",
+      "Check my hardware order status"
+    ],
+    "tags": [
+      "laptop",
+      "hardware",
+      "order",
+      "status"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "pattern": "^HW-[A-F0-9]{8,64}$"
+        }
+      },
+      "required": [
+        "order_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "operations.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.old_inventory",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "read",
+    "version": "0.9",
+    "status": "draft",
+    "lifecycle": "deprecated",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "get_inventory_status"
+    },
+    "name": "Old inventory lookup",
+    "description": "Deprecated inventory capability; use supply.check_inventory.",
+    "examples": [],
+    "tags": [],
+    "owner": "Supply",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "supply.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.open_case",
+    "type": "workflow",
+    "kind": "handoff",
+    "domain": "Operations",
+    "operation": "handoff",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "handoff",
+    "invocation": {
+      "adapter": "handoff",
+      "tool": "open_case"
+    },
+    "name": "Open internal case application",
+    "description": "Hand off to the internal LOB case page by navigation, without transferring chat.",
+    "examples": [
+      "Open case CASE-1042 in the internal system"
+    ],
+    "tags": [
+      "handoff",
+      "link"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "pattern": "^CASE-[0-9]{4}$"
+        }
+      },
+      "required": [
+        "case_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "operations.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "operations.open_expenses",
+    "type": "workflow",
+    "kind": "handoff",
+    "domain": "Operations",
+    "operation": "handoff",
+    "version": "1.0",
+    "status": "approved",
+    "lifecycle": "active",
+    "protocol": "handoff",
+    "invocation": {
+      "adapter": "handoff",
+      "tool": "open_expenses"
+    },
+    "name": "Open Concur expenses",
+    "description": "Navigate to the mock Concur-style expense application to prepare an expense report. Does not submit expenses or transfer the conversation.",
+    "examples": [
+      "I need to submit my expenses in Concur.",
+      "Open Concur",
+      "Submit expenses"
+    ],
+    "tags": [
+      "concur",
+      "expenses",
+      "expense",
+      "handoff"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [
+      "operations.read"
+    ],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "operations.order_hardware",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Operations",
+    "operation": "write",
+    "version": "1.0",
+    "status": "approved",
+    "lifecycle": "active",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "order_hardware"
+    },
+    "name": "Order new hardware",
+    "description": "Order a new laptop through the legacy ERP after the employee confirms the exact hardware request. Returns a hardware order ID.",
+    "examples": [
+      "I need a new laptop.",
+      "Order new hardware",
+      "Request a laptop"
+    ],
+    "tags": [
+      "laptop",
+      "hardware",
+      "computer",
+      "order"
+    ],
+    "owner": "Operations",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "string",
+          "enum": [
+            "laptop"
+          ]
+        }
+      },
+      "required": [
+        "item"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [
+      "operations.write"
+    ],
+    "approval_required": true,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "people.employee_self_service",
+    "type": "agent",
+    "kind": "knowledge",
+    "domain": "People",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "published_agent",
+    "invocation": {
+      "adapter": "published_agent",
+      "tool": "ask"
+    },
+    "name": "Employee Self-Service (simulated)",
+    "description": "Ask the simulated published HR agent about leave and employee self-service.",
+    "examples": [
+      "Ask Employee Self-Service about HR leave policy"
+    ],
+    "tags": [
+      "HR",
+      "ESS"
+    ],
+    "owner": "People",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "question"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "leave.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "people.get_leave_request",
+    "type": "tool",
+    "kind": "action",
+    "domain": "People",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "published_agent",
+    "invocation": {
+      "adapter": "published_agent",
+      "tool": "request"
+    },
+    "name": "Get leave request status",
+    "description": "Retrieve the signed-in employee's previously submitted leave request.",
+    "examples": [
+      "Show my leave request",
+      "Get leave request status"
+    ],
+    "tags": [
+      "leave",
+      "request",
+      "status"
+    ],
+    "owner": "People",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "pattern": "^LEAVE-[A-F0-9]{8}$"
+        }
+      },
+      "required": [
+        "request_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "leave.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "people.leave_balance",
+    "type": "tool",
+    "kind": "action",
+    "domain": "People",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "published_agent",
+    "invocation": {
+      "adapter": "published_agent",
+      "tool": "balance"
+    },
+    "name": "Check leave balance",
+    "description": "Read the signed-in employee's remaining annual leave days.",
+    "examples": [
+      "How many days do I have?",
+      "Check my leave balance"
+    ],
+    "tags": [
+      "holiday",
+      "remaining"
+    ],
+    "owner": "People",
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "leave.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "people.leave_policy",
+    "type": "tool",
+    "kind": "knowledge",
+    "domain": "People",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "knowledge",
+    "invocation": {
+      "adapter": "knowledge",
+      "tool": "leave_policy"
+    },
+    "name": "Annual leave policy",
+    "description": "Retrieve the Sweden annual leave policy with citations.",
+    "examples": [
+      "What is our annual leave policy in Sweden?",
+      "Time off rules"
+    ],
+    "tags": [
+      "holiday",
+      "vacation",
+      "policy"
+    ],
+    "owner": "People",
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "knowledge.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "people.request_leave",
+    "type": "tool",
+    "kind": "action",
+    "domain": "People",
+    "operation": "write",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "published_agent",
+    "invocation": {
+      "adapter": "published_agent",
+      "tool": "leave"
+    },
+    "name": "Request annual leave",
+    "description": "Book annual leave time off after checking policy and balance. Requires confirmation.",
+    "examples": [
+      "Book next week off",
+      "Request annual leave",
+      "Book annual leave next week"
+    ],
+    "tags": [
+      "vacation",
+      "holiday",
+      "submit"
+    ],
+    "owner": "People",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "start_date",
+        "end_date"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "leave.write"
+    ],
+    "approval_required": true,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "python-development",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://python-development/SKILL.md"
+    },
+    "name": "python-development",
+    "description": "Implement, review, or test Python behavior using the repository's interpreter, dependencies, typing, and test conventions. Use only for an evidenced Python stack.",
+    "examples": [
+      "Review a Python async handler that performs a blocking network call."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "architect",
+      "planner",
+      "coder",
+      "reviewer",
+      "tester"
+    ],
+    "technologies": [
+      "python",
+      {
+        "name": "python",
+        "constraint": "*"
+      },
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "*"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  },
+  {
+    "id": "supply.assess_risk",
+    "type": "agent",
+    "kind": "handoff",
+    "domain": "Supply",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "a2a",
+    "invocation": {
+      "adapter": "a2a",
+      "tool": "assess_risk"
+    },
+    "name": "Assess product supply risk",
+    "description": "Delegate a supply risk assessment for a product to a specialist agent over A2A.",
+    "examples": [
+      "Assess next week's supply risk for product P-100",
+      "Analyze supply disruption"
+    ],
+    "tags": [
+      "inventory",
+      "shortage",
+      "supplier"
+    ],
+    "owner": "Supply",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "pattern": "^P-[0-9]{3}$"
+        }
+      },
+      "required": [
+        "product_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "supply.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "supply.check_inventory",
+    "type": "tool",
+    "kind": "action",
+    "domain": "Supply",
+    "operation": "read",
+    "version": "1.0",
+    "status": "draft",
+    "lifecycle": "active",
+    "protocol": "mcp",
+    "invocation": {
+      "adapter": "mcp",
+      "tool": "get_inventory_status"
+    },
+    "name": "Check product inventory",
+    "description": "Read current synthetic inventory for a product through the MCP gateway.",
+    "examples": [
+      "Check inventory for P-100"
+    ],
+    "tags": [
+      "stock"
+    ],
+    "owner": "Supply",
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "pattern": "^P-[0-9]{3}$"
+        }
+      },
+      "required": [
+        "product_id"
+      ],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": null,
+    "permissions": [
+      "supply.read"
+    ],
+    "approval_required": false,
+    "reviewer": null,
+    "approved_at": null,
+    "approval_scope": null
+  },
+  {
+    "id": "test-strategy",
+    "type": "skill",
+    "kind": "knowledge",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "read",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "mcp-resource",
+    "invocation": {
+      "uri": "skill://test-strategy/SKILL.md"
+    },
+    "name": "test-strategy",
+    "description": "Design focused regression tests and an evidence-based verification plan for a software change. Use when implementing or testing behavior, not for prose-only tasks.",
+    "examples": [
+      "Propose regression tests for rejecting empty and overlong order references."
+    ],
+    "tags": [],
+    "owner": "unassigned",
+    "inputs": null,
+    "roles": [
+      "tester",
+      "coder"
+    ],
+    "technologies": [
+      "*",
+      {
+        "name": "copilot-sdk-python-1",
+        "constraint": "*"
+      }
+    ],
+    "tasks": [
+      "testing",
+      "implementation"
+    ],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": [],
+    "approval_required": false,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-16T11:40:31Z",
+    "approval_scope": "testbed"
+  }
+]

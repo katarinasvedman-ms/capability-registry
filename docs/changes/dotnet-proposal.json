@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-11-16T12:13:45.856664+00:00",
+  "binding": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general"
+  },
+  "member_version": "1",
+  "published": false,
+  "source_head": "42583dff777676bb008f1d6fc581fe99459e56be",
+  "source_semantic_version": "1.0.3",
+  "pinned_frontmatter": {
+    "name": "dotnet-development",
+    "description": "Implement, inspect, review, or test C# and .NET changes using the repository's target framework and conventions. Use when project files establish .NET, not for Java or Python tasks."
+  },
+  "files": [
+    {
+      "path": "SKILL.md",
+      "pinned_sha256": "ab0cfcf4df13d56344b8d14c1d8a781da75025f74752ec158caea87bf2b182df",
+      "source_sha256": "e3a05306d4f85e16329eb691ffa69abd4e26347dc38752f9f6caf9f6573eeb41",
+      "changed": true
+    },
+    {
+      "path": "references/validation.md",
+      "pinned_sha256": "3f1160126a030fb14bbd9f0595a71155151fd86c4e2f9fadc0856ed981f2ced5",
+      "source_sha256": "b205792bc8f8d12c16ad8337a877d8c32ebf0b68761f8cc65a26e1d738188d56",
+      "changed": true
+    }
+  ],
+  "current_matches_frozen_snapshot": true,
+  "diff": "docs\\changes\\dotnet-pinned-v1-to-current.diff",
+  "publication_plan": {
+    "skill": "POST https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills/skills/dotnet-development/versions?api-version=v1",
+    "verify": "GET the newly assigned skill version's content and compare all staged file hashes",
+    "toolbox": "POST https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills/toolboxes/factory-skills/versions?api-version=v1",
+    "composition": "Branch the reviewed original default v1; change only the .NET reference to the newly assigned numeric pin",
+    "default": "Never change the default; promotion requires the user's separate decision",
+    "source_pattern": "baselines\\factory-skills\\tools\\publish_foundry.py publish_roles delta/hash verification and normal skill/Toolbox version APIs"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "architecture-analysis": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "implementation-planning": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "code-review": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "test-strategy": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "legacy-code-analysis": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "dotnet-development": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "java-development": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "python-development": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "api-development": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "database-changes": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "1",
+    "risk_tier": "general",
+    "member_version": "1"
+  },
+  "mock.get_build_status": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "3",
+    "risk_tier": "general",
+    "tool_name": "capability-registry-mock-f3e5ad02___get_build_status"
+  },
+  "mock.create_ticket": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "3",
+    "risk_tier": "general",
+    "tool_name": "capability-registry-mock-f3e5ad02___create_ticket"
+  },
+  "mock.deploy_release": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills-privileged",
+    "toolbox": "capability-registry-privileged",
+    "version": "1",
+    "risk_tier": "privileged",
+    "tool_name": "capability-registry-mock-f3e5ad02___deploy_release"
+  },
+  "operations.order_hardware": {
+    "project_endpoint": "https://factory-skills-resource.services.ai.azure.com/api/projects/factory-skills",
+    "toolbox": "factory-skills",
+    "version": "3",
+    "risk_tier": "general",
+    "tool_name": "capability-registry-mock-f3e5ad02___order_hardware"
+  }
+}

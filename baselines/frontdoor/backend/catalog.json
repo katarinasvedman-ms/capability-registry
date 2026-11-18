@@ -1,0 +1,151 @@
+[
+  {
+    "id": "people.leave_policy", "name": "Annual leave policy", "domain": "People",
+    "description": "Retrieve the Sweden annual leave policy with citations.",
+    "examples": ["What is our annual leave policy in Sweden?", "Time off rules"],
+    "tags": ["holiday", "vacation", "policy"], "type": "knowledge", "protocol": "knowledge",
+    "invocation": {"adapter": "knowledge", "tool": "leave_policy"},
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "required_permissions": ["knowledge.read"], "approval_required": false,
+    "owner": "People", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "people.leave_balance", "name": "Check leave balance", "domain": "People",
+    "description": "Read the signed-in employee's remaining annual leave days.",
+    "examples": ["How many days do I have?", "Check my leave balance"],
+    "tags": ["holiday", "remaining"], "type": "read", "protocol": "published_agent",
+    "invocation": {"adapter": "published_agent", "tool": "balance"},
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "required_permissions": ["leave.read"], "approval_required": false,
+    "owner": "People", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "people.request_leave", "name": "Request annual leave", "domain": "People",
+    "description": "Book annual leave time off after checking policy and balance. Requires confirmation.",
+    "examples": ["Book next week off", "Request annual leave", "Book annual leave next week"],
+    "tags": ["vacation", "holiday", "submit"], "type": "action", "protocol": "published_agent",
+    "invocation": {"adapter": "published_agent", "tool": "leave"},
+    "input_schema": {"type": "object", "properties": {"start_date": {"type": "string", "format": "date"}, "end_date": {"type": "string", "format": "date"}}, "required": ["start_date", "end_date"], "additionalProperties": false},
+    "required_permissions": ["leave.write"], "approval_required": true,
+    "owner": "People", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "people.get_leave_request", "name": "Get leave request status", "domain": "People",
+    "description": "Retrieve the signed-in employee's previously submitted leave request.",
+    "examples": ["Show my leave request", "Get leave request status"], "tags": ["leave", "request", "status"],
+    "type": "read", "protocol": "published_agent",
+    "invocation": {"adapter": "published_agent", "tool": "request"},
+    "input_schema": {"type": "object", "properties": {"request_id": {"type": "string", "pattern": "^LEAVE-[A-F0-9]{8}$"}}, "required": ["request_id"], "additionalProperties": false},
+    "required_permissions": ["leave.read"], "approval_required": false,
+    "owner": "People", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "people.employee_self_service", "name": "Employee Self-Service (simulated)", "domain": "People",
+    "description": "Ask the simulated published HR agent about leave and employee self-service.",
+    "examples": ["Ask Employee Self-Service about HR leave policy"], "tags": ["HR", "ESS"],
+    "type": "agent", "protocol": "published_agent",
+    "invocation": {"adapter": "published_agent", "tool": "ask"},
+    "input_schema": {"type": "object", "properties": {"question": {"type": "string", "minLength": 1, "maxLength": 2000}}, "required": ["question"], "additionalProperties": false},
+    "required_permissions": ["leave.read"], "approval_required": false,
+    "owner": "People", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "supply.assess_risk", "name": "Assess product supply risk", "domain": "Supply",
+    "description": "Delegate a supply risk assessment for a product to a specialist agent over A2A.",
+    "examples": ["Assess next week's supply risk for product P-100", "Analyze supply disruption"],
+    "tags": ["inventory", "shortage", "supplier"], "type": "agent", "protocol": "a2a",
+    "invocation": {"adapter": "a2a", "tool": "assess_risk"},
+    "input_schema": {"type": "object", "properties": {"product_id": {"type": "string", "pattern": "^P-[0-9]{3}$"}}, "required": ["product_id"], "additionalProperties": false},
+    "required_permissions": ["supply.read"], "approval_required": false,
+    "owner": "Supply", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "supply.check_inventory", "name": "Check product inventory", "domain": "Supply",
+    "description": "Read current synthetic inventory for a product through the MCP gateway.",
+    "examples": ["Check inventory for P-100"], "tags": ["stock"],
+    "type": "read", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "get_inventory_status"},
+    "input_schema": {"type": "object", "properties": {"product_id": {"type": "string", "pattern": "^P-[0-9]{3}$"}}, "required": ["product_id"], "additionalProperties": false},
+    "required_permissions": ["supply.read"], "approval_required": false,
+    "owner": "Supply", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.get_case", "name": "Get service request or case", "domain": "Operations",
+    "description": "Read a permitted internal case or a service request status.",
+    "examples": ["Show case CASE-1042", "Show the request", "Check service request status"],
+    "tags": ["ticket", "status"], "type": "read", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "get_service_request"},
+    "input_schema": {"type": "object", "properties": {"case_id": {"type": "string", "minLength": 1, "maxLength": 80}}, "required": ["case_id"], "additionalProperties": false},
+    "required_permissions": ["operations.read"], "approval_required": false,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.create_service_request", "name": "Create a service request", "domain": "Operations",
+    "description": "Create a service request for broken store equipment such as a scanner after confirmation.",
+    "examples": ["Create a service request for a broken store scanner", "Report broken equipment"],
+    "tags": ["ticket", "repair", "scanner"], "type": "action", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "create_service_request"},
+    "input_schema": {"type": "object", "properties": {"title": {"type": "string", "minLength": 5, "maxLength": 200}}, "required": ["title"], "additionalProperties": false},
+    "required_permissions": ["operations.write"], "approval_required": true,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.order_hardware", "name": "Order new hardware", "domain": "Operations",
+    "description": "Order a new laptop through the legacy ERP after the employee confirms the exact hardware request. Returns a hardware order ID.",
+    "examples": ["I need a new laptop.", "Order new hardware", "Request a laptop"],
+    "tags": ["laptop", "hardware", "computer", "order"], "type": "action", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "order_hardware"},
+    "input_schema": {"type": "object", "properties": {"item": {"type": "string", "enum": ["laptop"]}}, "required": ["item"], "additionalProperties": false},
+    "required_permissions": ["operations.write"], "approval_required": true,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.get_hardware_order", "name": "Get hardware order", "domain": "Operations",
+    "description": "Read the signed-in employee's previously submitted hardware order.",
+    "examples": ["Show my laptop order", "Check my hardware order status"],
+    "tags": ["laptop", "hardware", "order", "status"], "type": "read", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "get_hardware_order"},
+    "input_schema": {"type": "object", "properties": {"order_id": {"type": "string", "pattern": "^HW-[A-F0-9]{8,64}$"}}, "required": ["order_id"], "additionalProperties": false},
+    "required_permissions": ["operations.read"], "approval_required": false,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.open_expenses", "name": "Open Concur expenses", "domain": "Operations",
+    "description": "Navigate to the mock Concur-style expense application to prepare an expense report. Does not submit expenses or transfer the conversation.",
+    "examples": ["I need to submit my expenses in Concur.", "Open Concur", "Submit expenses"],
+    "tags": ["concur", "expenses", "expense", "handoff"], "type": "handoff", "protocol": "handoff",
+    "invocation": {"adapter": "handoff", "tool": "open_expenses"},
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "required_permissions": ["operations.read"], "approval_required": false,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.open_case", "name": "Open internal case application", "domain": "Operations",
+    "description": "Hand off to the internal LOB case page by navigation, without transferring chat.",
+    "examples": ["Open case CASE-1042 in the internal system"], "tags": ["handoff", "link"],
+    "type": "handoff", "protocol": "handoff",
+    "invocation": {"adapter": "handoff", "tool": "open_case"},
+    "input_schema": {"type": "object", "properties": {"case_id": {"type": "string", "pattern": "^CASE-[0-9]{4}$"}}, "required": ["case_id"], "additionalProperties": false},
+    "required_permissions": ["operations.read"], "approval_required": false,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.admin_report", "name": "Admin-only Operations report", "domain": "Operations",
+    "description": "Retrieve the administrative operations summary.",
+    "examples": ["Admin-only report"], "tags": ["admin"],
+    "type": "read", "protocol": "local",
+    "invocation": {"adapter": "local", "tool": "admin_report"},
+    "input_schema": {"type": "object", "properties": {}, "additionalProperties": false},
+    "required_permissions": ["operations.admin"], "approval_required": false,
+    "owner": "Operations", "status": "active", "version": "1.0"
+  },
+  {
+    "id": "operations.old_inventory", "name": "Old inventory lookup", "domain": "Operations",
+    "description": "Deprecated inventory capability; use supply.check_inventory.",
+    "examples": [], "tags": [], "type": "read", "protocol": "mcp",
+    "invocation": {"adapter": "mcp", "tool": "get_inventory_status"},
+    "input_schema": {"type": "object", "properties": {"product_id": {"type": "string"}}, "required": ["product_id"], "additionalProperties": false},
+    "required_permissions": ["supply.read"], "approval_required": false,
+    "owner": "Supply", "status": "deprecated", "version": "0.9"
+  }
+]

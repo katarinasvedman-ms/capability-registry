@@ -1,0 +1,523 @@
+{
+  "entries": {
+    "architecture-analysis": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "implementation-planning": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "code-review": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "test-strategy": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "legacy-code-analysis": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "dotnet-development": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "java-development": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "python-development": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "api-development": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "database-changes": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "mapping": "Technology prerequisites and the single runtime compatibility label are required unconstrained technologies, not capability IDs.",
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "unspecified_applicability": [
+        "tags"
+      ],
+      "status": "Explicit testbed approval, not production approval"
+    },
+    "people.leave_policy": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "knowledge",
+        "kind": "knowledge",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "people.leave_balance": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "people.request_leave": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "action",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "people.get_leave_request": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "people.employee_self_service": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "agent",
+        "kind": "knowledge",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {
+        "kind": "knowledge"
+      },
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "supply.assess_risk": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "agent",
+        "kind": "handoff",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {
+        "kind": "handoff"
+      },
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "supply.check_inventory": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.get_case": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.create_service_request": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "action",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.order_hardware": {
+      "unknown": [],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "action",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.get_hardware_order": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.open_expenses": {
+      "unknown": [],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "handoff",
+        "kind": "handoff",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.open_case": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "handoff",
+        "kind": "handoff",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.admin_report": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "active",
+        "status": "active"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "operations.old_inventory": {
+      "unknown": [
+        "risk_tier",
+        "reviewer",
+        "approved_at"
+      ],
+      "unspecified_applicability": [
+        "roles",
+        "technologies",
+        "tasks",
+        "requires"
+      ],
+      "unrepresented_source_fields": {},
+      "source_mapping": {
+        "type": "read",
+        "kind": "action",
+        "lifecycle": "deprecated",
+        "status": "deprecated"
+      },
+      "inferred": {},
+      "status": "Explicit testbed approval only for the named fixture IDs; otherwise draft"
+    },
+    "mock.get_build_status": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "inferred": {
+        "kind": "knowledge",
+        "lifecycle": "active"
+      },
+      "status": "Explicit synthetic testbed fixture approval"
+    },
+    "mock.create_ticket": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "inferred": {
+        "kind": "action",
+        "lifecycle": "active"
+      },
+      "status": "Explicit synthetic testbed fixture approval"
+    },
+    "mock.deploy_release": {
+      "unknown": [
+        "owner"
+      ],
+      "unrepresented_source_fields": {},
+      "inferred": {
+        "kind": "action",
+        "lifecycle": "active"
+      },
+      "status": "Explicit synthetic testbed fixture approval"
+    }
+  },
+  "notes": [
+    "Null values are unknowns, not permission grants.",
+    "Approval is limited to the explicit testbed decision; unassigned ownership remains a readiness issue.",
+    "Empty applicability on imported frontdoor entries means unspecified, not verified.",
+    "requires contains capability IDs, not source technology prerequisites. They are not interchangeable.",
+    "Constrained technology objects are conjunctive requirements; constraint '*' requires presence without asserting a version. Plain strings are alternatives.",
+    "Captured factory entries have one runtime compatibility label each. Alternative runtime labels need an agreed encoding, not conjunction.",
+    "Source discovery type read maps to kind action plus operation read; knowledge maps to kind knowledge. Agent type remains explicit.",
+    "Source lifecycle inactive maps to retired; approval is independent."
+  ]
+}

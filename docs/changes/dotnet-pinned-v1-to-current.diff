@@ -1,0 +1,35 @@
+--- pinned-toolbox-v1-skill-v1/SKILL.md
++++ current-source/SKILL.md
+@@ -14,10 +14,11 @@
+ 4. Read [the validation checklist](references/validation.md) before returning
+    a .NET implementation proposal or review.
+ 5. Add focused behavioral regression tests using the existing test framework.
+-   Run build/test commands only through approved execution tools.
++   Run build and test commands only through approved execution tools.
+ 6. When execution is not permitted, return a patch/proposal and mark validation
+    NOT RUN. Never imply that source inspection proves a build succeeds.
+ 
+-Before submitting your final response, include the compatibility evidence
+-required by the validation checklist. Reading the checklist is not sufficient:
+-the observed project settings must appear in the final response.
++Before submitting your final response, include the compatibility and behavior
++evidence required by the validation checklist. Reading the checklist is not
++sufficient: the observed project settings and concrete input/outcome examples
++must appear in the final response.
+--- pinned-toolbox-v1-skill-v1/references/validation.md
++++ current-source/references/validation.md
+@@ -4,6 +4,14 @@
+ target framework, nullable setting (or "not specified"), and the relevant
+ project file path. This makes unsupported framework assumptions visible.
+ 
++For a proposal that changes input validation, also include a `Behavior evidence`
++section. Give at least one concrete invalid input and its proposed rejection
++outcome, and one concrete valid input with its preserved expected output.
++Identify the affected method and source path. Label these examples as proposed
++or inspection-based unless an approved tool actually executed them; if executed,
++cite the command and result. Keep validation marked NOT RUN when no executor
++was available.
++
+ Check existing naming, dependency injection, async/cancellation conventions,
+ and test runner before proposing a change. Verify boundary inputs and preserve
+ existing HTTP and persistence contracts.

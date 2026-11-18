@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "factory-skills": {
+      "head": "42583dff777676bb008f1d6fc581fe99459e56be",
+      "selected_worktree_changes": [
+        {
+          "path": "pyproject.toml",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "requirements.lock",
+          "change": "modified-from-recorded-head"
+        }
+      ],
+      "files": {
+        "catalog.json": "f271153775b4e9168df594b0c22b2f44f4c15f693160249aef3d92efe2e1f150",
+        "catalog.schema.json": "ed897e1348a1a3ca1ad90400a9c0eaa2e3549dc78427e5ec17b16ab9b579099e",
+        "evaluations.json": "1e6b822d42d801a91e07cecf46b078dfb6e97286a65a7907199d412afbc26a52",
+        "pyproject.toml": "84e0e96d6061ec8acb036031859385408527dd2db9a25ec2cfe4a193a4bf187e",
+        "requirements.lock": "e6374258298b41062ae9be592ce0068e025a1fe544bf2de825b4a37ce4b1c9b3",
+        "README.md": "5c5442aab5d07b86f5fc5f12820430462cd792eb2e974b1928791adb1d1ee227",
+        "skills/api-development/SKILL.md": "df438cb9abec0a685621f1546a9878c9067312d6029f72b1de8e679c8e7c4342",
+        "skills/architecture-analysis/SKILL.md": "2bcd1ca017ed5a6d125e8d89d247b5b3a999c9c9c0d071a12f0583c9dbd0bd87",
+        "skills/code-review/SKILL.md": "0ee7d136d6c9b67ffdbedfe7c92524a14dc6e56d0aa9b91fc6b09bfa094196a8",
+        "skills/database-changes/references/migrations.md": "3ccd4387dad2e533b34f68fd848ea9be5b72e8db297bb6b19e82bfb99c2f2532",
+        "skills/database-changes/SKILL.md": "b7c64da4c9ab6bae7b42b1c2eebb0602301ced2e807134c238f68fd9f7c4721b",
+        "skills/dotnet-development/references/validation.md": "b205792bc8f8d12c16ad8337a877d8c32ebf0b68761f8cc65a26e1d738188d56",
+        "skills/dotnet-development/SKILL.md": "e3a05306d4f85e16329eb691ffa69abd4e26347dc38752f9f6caf9f6573eeb41",
+        "skills/implementation-planning/SKILL.md": "31772f141a443abf0659455a0f9355cb36ccb481b345bbab1cdd5b23b95de15f",
+        "skills/java-development/SKILL.md": "2acf83142b7ef1faaf8dd70577062683b270d024a154e54a6124a81c466ae909",
+        "skills/legacy-code-analysis/SKILL.md": "606678ce73475bee7aa41a3a7272e1c4a6c494d5ffe965e4ad898e4d38f29f50",
+        "skills/python-development/SKILL.md": "383192e92b24154e45e5a5c1ca3b1f636655520dfacc285701eef26a021fc5b5",
+        "skills/test-strategy/SKILL.md": "d4772386e592f0f0a13066b77bf19a9b4378ba208407e53a906bc9669da82cbf",
+        "tools/__init__.py": "2dced0c1e89cdc4dcc01502ae0ee9c196504d937de789b156708eec508dbdfea",
+        "tools/publish_foundry.py": "0504b4590d668a19586f556b0d4a86f9da3666d588813825027a6769561f323d",
+        "tools/skills.py": "167994d4a53b71e6a516a13c1aeb5c31858718323249332d1018f1278fcae085",
+        "tests/conftest.py": "d2a470e55932709fdc8c9cf678821e5224f58a151ce617fa1c3ebb995bb31894",
+        "tests/test_publish.py": "5c3d79ab03e5c7b2d015c7ae851c6c4e7a76881f87fb87604ff50600fcb39f3e",
+        "tests/test_release.py": "ecc2554f8a2e61fb5e0d99ce8094f48ef4f2ce5178eee9442d037236da1ddc2a"
+      },
+      "status_basis": "Captured bytes versus recorded HEAD; index staging state not retained"
+    },
+    "ai-factory": {
+      "head": "6bf9f15be126da003dade62d9315ad141ed27a43",
+      "selected_worktree_changes": [
+        {
+          "path": "pyproject.toml",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "requirements.lock",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "README.md",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "role-isolation-report.md",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "src/ai_factory/__init__.py",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "src/ai_factory/skill_evaluation.py",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/conftest.py",
+          "change": "modified-from-recorded-head"
+        },
+        {
+          "path": "tests/test_skill_evaluation.py",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "examples/skill-selection-matrix.json",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/orders/obj/Debug/net8.0/Orders.AssemblyInfo.cs",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/orders/obj/Debug/net8.0/Orders.GlobalUsings.g.cs",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/orders/obj/Orders.csproj.nuget.dgspec.json",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/orders/obj/project.assets.json",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/java/pom.xml",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/java/src/main/java/example/OrderService.java",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/java/src/test/java/example/OrderServiceTest.java",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/python/orders.py",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/python/pyproject.toml",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/python/test_orders.py",
+          "change": "not-in-recorded-head"
+        },
+        {
+          "path": "tests/fixtures/selection/unknown/context.txt",
+          "change": "not-in-recorded-head"
+        }
+      ],
+      "files": {
+        "pyproject.toml": "7d77f2b103bc9e79c907f51123417a108c1c7bd7b0e015a38680d1ccbc0dc706",
+        "requirements.lock": "2d70c5dd04513a826b28808929978538404b6326544232d019aa8b71d355d359",
+        "README.md": "1c29c1f6e045f4963330d593060e75824ee0b69fd51720455fb02b51cf9616ea",
+        "role-isolation-report.md": "ecc94fbaa3439c2a848217d90ecf4ba9482ecf97383c1e21adaafb6e9fa81309",
+        "src/ai_factory/__init__.py": "bef8ff0457d28221b4a68cff157ea7906b76c092995871a986d2fda4d0f3d787",
+        "src/ai_factory/cli.py": "aec7afc09117d5ddc751f635c2799204229c77fc25bf5f1ca7a81f4e33a3b79b",
+        "src/ai_factory/contracts.py": "82f92c4d7caeb33e0fb63938cc0d8824534393d706bb496d4059410ac513f840",
+        "src/ai_factory/execution.py": "200242f873262dc9d6a56739c52db30f8fbd1199b157e3a3b2cdc784d33d06d0",
+        "src/ai_factory/job.py": "415fc2446cf0b754cd9b717627500da3c0a0034801396bcd0894c8b92ef85f9c",
+        "src/ai_factory/profile.py": "304974d3f8e3aead06e4dd336add277fdb8bbae2d52f086a1fd659baedba7fc4",
+        "src/ai_factory/provider.py": "65c548cc708d69fb045354c5ebdbf9c6f22eff84c55eb079573e49b51a6696e7",
+        "src/ai_factory/resolvers.py": "dd064063acd58ff28e197df0c1ef325c730aefec3d23d1cecdd48c885a146ef0",
+        "src/ai_factory/runtime.py": "dffe73d5f20729bd413213aad20cd9178b8e977a447528571d84538e894a7719",
+        "src/ai_factory/selection.py": "ec919ce574d972ebec1ef55db00e7f22a7084b30573dca87530b4a34b7c1343a",
+        "src/ai_factory/skill_evaluation.py": "67634ba1de99e7432095f31bb5217fd759f900b65ed2e1623dd550f790c42adc",
+        "tests/conftest.py": "509fec1f92fc091ec2a6ac1c298d25a8a3af53a8e19a03578071c36443e9b129",
+        "tests/test_execution.py": "d8aa4872c0dafdcd31220661cc00541b7a6c940fcecdfc743f5a3fa349be6715",
+        "tests/test_live_demo.py": "9132b4a731ce55b50e965dc1ae40f5fa01f060de7ce86937817dc67da4283fde",
+        "tests/test_provider.py": "8cc3b488346c86c0493f9f09fc8d0987afee4c54f25e581c9fdbcf32c3667565",
+        "tests/test_resolvers.py": "53f46186b14c3d3d94e8f1e290b08ab773a7ab9e8b641d20a38ed8d7d1d3b3a5",
+        "tests/test_runtime.py": "6dcc504f3e2913f9427491eccdfa45f19dbbd368b44e6552a73b9ef74786b431",
+        "tests/test_skill_evaluation.py": "268a9ab8897f857287076b1327834538d6bb6021d9228aa85ab6c509161f6b20",
+        "examples/foundry-binding.example.json": "b5597ccb89c06bff456ad6068e9825fc071c07c9709f270549c4195f9f7ec490",
+        "examples/policy.json": "639d480d8acb1ebfb5a17136f2a901d30c2ff8e914e0b735d5ffb2d272e44890",
+        "examples/provider-policy.json": "25e71404556a80ab970151330aff602a40691f557aa8d62692bfd2344a3a2c4e",
+        "examples/request.json": "9d5190680034e7203b13418472a786eaef8081c7230af1ef62b5fbcb97f55a8f",
+        "examples/skill-selection-matrix.json": "1a95b1714d11f621a99beecbbbf708f985d0f638b5b3e2af0b03151e569d108d",
+        "tests/fixtures/orders/appsettings.json": "ec83ab3b067d806b8ec1486a1816d29ddb8152c03f9d8d1a8212eba9f5c8683c",
+        "tests/fixtures/orders/obj/Debug/net8.0/Orders.AssemblyInfo.cs": "707c8cfb8f22d085c1cb68bd8a2d1348ee0b27bff6b5eef36d3cb14392d02757",
+        "tests/fixtures/orders/obj/Debug/net8.0/Orders.GlobalUsings.g.cs": "dcdf55702e02f3cc88efc9a8ec2b6881891f8821df27db90157ba496ae9813a1",
+        "tests/fixtures/orders/obj/Orders.csproj.nuget.dgspec.json": "a5df22f189567059ec9b7497755dce2489baade2fe82b35d55a3e92e61a13e43",
+        "tests/fixtures/orders/obj/project.assets.json": "93999827e40d2aceaf35dd6f5ba1c1af3e138fd34cddf9a94fa2871d79277b2e",
+        "tests/fixtures/orders/Orders.csproj": "b3a7c7279cbf69b276b22b3e22d3f0d492b416156ae60f735ce1762c599c7d9f",
+        "tests/fixtures/orders/OrderService.cs": "713401f1d543372f915ccb31176ce9c3b69d90d603bdecd8d7da571fe69e7069",
+        "tests/fixtures/orders/Program.cs": "7372e225f6a66433b6ae9c205ad7b680f4ccff1d2ac08bbdf640a1e2489931fc",
+        "tests/fixtures/orders/schema.sql": "3976f1759331617ceb5d091d389e1be6c7c235607bf37269cece75b8cb08722a",
+        "tests/fixtures/selection/java/pom.xml": "43e8ef45ea9e86d9e561e09c5ee550021bbb4204fd936c155f126edfc7666bad",
+        "tests/fixtures/selection/java/src/main/java/example/OrderService.java": "0aa52c3262cc20a7aa237a761a7b2ccc6144bd1c903e6b90384088f50620b91c",
+        "tests/fixtures/selection/java/src/test/java/example/OrderServiceTest.java": "03b07282b129577393ee4e74abe9ce9f3d9b9128bfe9e9eaebdc25e7a85934c6",
+        "tests/fixtures/selection/python/orders.py": "3dc0d8e69888d18057028e1e11dd3489dfceb20b520baa33db3cb82e21b0ee0a",
+        "tests/fixtures/selection/python/pyproject.toml": "606743409d1ecc34ddf9bc3f6b6e83cee37c9094fc058f6638e29360e635b2fe",
+        "tests/fixtures/selection/python/test_orders.py": "449bcba2200a6475027a4ee982b4507c6d3495bf7e4403d4ce096f93dac31f4c",
+        "tests/fixtures/selection/unknown/context.txt": "64db81d45173d2c28e493c1dcb18b177bf636d7e441b7b8360318f3102fb2552"
+      },
+      "status_basis": "Captured bytes versus recorded HEAD; index staging state not retained"
+    },
+    "frontdoor": {
+      "head": "cafbbb0858c7145925fa23e91f65c357269ea60e",
+      "selected_worktree_changes": [],
+      "files": {
+        "pyproject.toml": "959007a9a7d8bc8d8ad7c001a9121b5a549eeb09d01ff9c1534e01f4fc26f774",
+        "requirements.txt": "0ad26a92adf0e36950ce1f99e186fcd1b06d8b983ded1aebe56e23eb65932044",
+        "requirements.lock.txt": "cbd23ffe6cc4dd608b041416daf3b3e8c10e67fe61f058860c76f168cee60667",
+        "ARCHITECTURE.md": "9c147649b9d72df0742207a2e9aac0ecf0f9b6ddd74f71abdf635f01eef2c820",
+        "backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/apic_catalog.py": "98fae9389623ea5404dd608afe9395828b8429133d8db1aba8fc1596118ee970",
+        "backend/apim_gateway.py": "5f2612f6b275ec9f05d9c2e6d141731b9f701bb57c6746dfa8ce86d1b9779e37",
+        "backend/app.py": "e11c2f729c93b9d834c283371d615d24b9d8f096ebfafc6e305bf8572ce052da",
+        "backend/auth.py": "a7db0de42b86da4edf4fa98f1a3dfcc116309952edb7a1c3d590c165ac856814",
+        "backend/capabilities.py": "9fe1b5a795fad566c43f0999152a1d5cd182e146299c22fcc8acb78ae897dc52",
+        "backend/config.py": "19724fa65908c5119b08dbabc4e4287fd038b34fffba5fa7c0b2b5fde68d793c",
+        "backend/delegation.py": "21bc831f862bd2d1dfe1ce6385e7497d9f7bce867ca4b3aa6fd57b45c0937a96",
+        "backend/foundry_ess.py": "942c1c685a15c42a2327f48da7e530d6aa5a1bd2ec85346de5e62b8567d3ebd0",
+        "backend/foundry_iq.py": "2dabf3ecccd1b7733f73d861929480b9fa0383a08139ddfcf8aae564f74b8207",
+        "backend/foundry_supply.py": "a9308c7c6f01811003d468bf009233687db5ed5d0ed6d30671c181f0c0a747a4",
+        "backend/invoker.py": "c40b1c69719ca76020fdf8f24abac1104568c8d467ccff815ccd74751471b1f1",
+        "backend/knowledge.py": "07263a2c8a18947e3c70c6b8f1d831441a74c596aa2572d3d5518310c22ae4a1",
+        "backend/orchestrator.py": "fb6eee8143164cc89d8e68ff3b7567abd560c0e40074a55d38f0cfc64a8255fe",
+        "backend/store.py": "ced5127b6340e2705959ff2ca99a79874968f90d1784f3d466abbe6353a9fe1d",
+        "backend/catalog.json": "ef539c3312c3263cde6939fcbace5f3ad9ad21cd4af2507b3f634b90617a1937",
+        "services/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "services/cloud_legacy.py": "2b760bfdda721eab4fbd6545960f2919b980962351c53f2d8a9b023e00ad77df",
+        "services/ess.py": "089943b11384f98a29e6920770b6db69df04c6901c0de9d3c37a54d79cd8ec8e",
+        "services/gateway.py": "cefe9eacff73384612e7294ea319cfbf28ce047e9b97b959e7d53e735ad369ab",
+        "services/legacy.py": "c1a603bebbfbd8342d3aa4f4d868298352ce516e7567470335ba08dddb8906bc",
+        "services/security.py": "feac840f17d6edfebe26fb50ce7bebe57baa496995490e765588f011228565bb",
+        "services/supply.py": "398c8f78b761f52037e8fb225851cacdd3b25fea3def5a54a0c29261c43f48f2",
+        "services/supply_data.py": "6dbea6f359fe3f92209f0626dfcf29dcf1fbe71a4c582da09c1b013ab2651597",
+        "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/conftest.py": "441cc7eda62889bfa3dae97b581754837dd55ed8e8378790fddb2a00c57d6e7e",
+        "tests/test_apic_catalog.py": "bace57c8dae080bbb58da040726571d1fcb54b9003804154d1f5dbcc30070673",
+        "tests/test_apim_gateway.py": "9d38cb47a825fe93afbf75514719dd844eb3902725148ca7a6f8a5c319295f9b",
+        "tests/test_auth.py": "607f4ed67bbb19e49f8c6b5fdc8a987a31aadf869783c5a56cb435c6939e29d7",
+        "tests/test_cloud_legacy.py": "4296b6aa6edddd43cd49b0cd6b9e71266256e9c9b7261272d2204bd0948b5753",
+        "tests/test_foundry_ess.py": "7b2d044dbe3c169e14d54f1222fef69937460bcc7d077b046ee84a97d9c6a743",
+        "tests/test_foundry_iq.py": "db2974d6fad7ac785f9945eb62ec7d63d16243c650be5a9688a1bf8223a6a11d",
+        "tests/test_foundry_supply.py": "986faad97232f46c7d9b5b38a8812ac059b600901c7c6220106d51bcefb3593b",
+        "tests/test_gateway_publication.py": "cf858b2dc7af6328981ba8f41587da78692d23653bd4b62aacb705ca95bfed94",
+        "tests/test_governance.py": "b9194f58584ad4519f9865aad90d68ee4bd9c454320b8350e89891060adf99e7",
+        "tests/test_journeys.py": "649dba41376780283dd1330c1782ffdf782e4ea753fbe7a9dc8a90ea082100e3",
+        "tests/test_live_evaluation.py": "833fec9baf845c95b5d4dd7df3ee1e6ffd7fec0f231148bd3100155bf2e1f1f3",
+        "tests/test_live_knowledge.py": "ed23a11797ea40d9eb8f7195661edd1fcd348ac6d7ba71ba68cd61e8b6e3b782",
+        "tests/test_maf.py": "830e5818b9315c91517b196011aaf199943af61f920402cb13a0b6ffd4241991"
+      },
+      "status_basis": "Captured bytes versus recorded HEAD; index staging state not retained"
+    }
+  }
+}

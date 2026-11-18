@@ -1,0 +1,36 @@
+name: Validate registry testbed
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -c requirements.lock -e ".[copilot]" --group dev
+      - run: python -m tools.capture_sources --verify
+      - run: python -m tools.validate_catalog --offline --bindings catalog\bindings.json
+      - run: python -m tools.verify_h4_negative
+      - run: python -m pytest -q
+      - run: python -m ruff check .
+      - run: python -m ruff format --check .
+
+  maf-envelope:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -c requirements-maf.lock -e ".[maf,governance]" --group dev
+      - run: python -B -m tools.verify_frontdoor
+      - run: python -m pytest -q tests\test_governance_lease.py tests\test_governance_gateway.py

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "mock.action_agent",
+    "type": "agent",
+    "kind": "handoff",
+    "lifecycle": "active",
+    "domain": "platform",
+    "operation": "handoff",
+    "version": "1.0.0",
+    "status": "approved",
+    "protocol": "a2a",
+    "invocation": {"adapter": "a2a", "tool": "mock_action_agent"},
+    "name": "synthetic action sub-agent",
+    "description": "Testbed-only leased A2A handoff; records a synthetic task without business effects.",
+    "examples": ["Hand off a synthetic task"],
+    "tags": ["mock", "testbed", "governance"],
+    "owner": "unassigned",
+    "inputs": {
+      "type": "object",
+      "properties": {"title": {"type": "string", "minLength": 5, "maxLength": 200}},
+      "required": ["title"],
+      "additionalProperties": false
+    },
+    "roles": [],
+    "technologies": [],
+    "tasks": [],
+    "requires": [],
+    "risk_tier": "general",
+    "permissions": ["operations.write"],
+    "approval_required": true,
+    "reviewer": "katarina.svedman",
+    "approved_at": "2026-11-17T09:22:10Z",
+    "approval_scope": "testbed"
+  }
+]

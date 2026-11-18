@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "category": "RemoteTool",
+    "authType": "None",
+    "target": "https://capability-registry-f3e5ad02-18765.eun1.devtunnels.ms/mcp",
+    "isSharedToAll": false,
+    "metadata": {
+      "description": "Synthetic capability-registry testbed only; no real business operations or credentials",
+      "testbed": "capability-registry-f3e5ad02"
+    }
+  }
+}
