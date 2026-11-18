@@ -34,6 +34,8 @@ def sanitized(value):
                 "_capability_lease",
                 "x-capability-lease",
                 "capability_lease",
+                "execution_assertion",
+                "x-gateway-authorization",
             }
             else sanitized(item)
             for key, item in value.items()
@@ -80,7 +82,7 @@ class Runtime:
         await self.client.aclose()
         await self.credential.close()
 
-    async def authenticate(self, authorization, *, gateway_only=False):
+    async def authenticate(self, authorization, *, gateway_only=False, upstream_only=False):
         if not isinstance(authorization, str) or not authorization.startswith("Bearer "):
             raise HTTPException(403, "Authenticated identity required")
         token = authorization[7:]
@@ -113,7 +115,13 @@ class Runtime:
                 options={"require": ["exp", "iat", "oid", "tid", "aud", "iss"]},
             )
             oid = claims["oid"]
-            allowed = {self.config["gateway_oid"]} if gateway_only else self.config["callers"]
+            allowed = (
+                {self.config["gateway_oid"]}
+                if gateway_only
+                else self.config.get("trusted_upstreams", [])
+                if upstream_only
+                else self.config["callers"]
+            )
             if claims["tid"] != self.config["tenant"] or oid not in allowed:
                 raise ValueError("Unpermitted principal")
             if gateway_only and claims["aud"] not in {

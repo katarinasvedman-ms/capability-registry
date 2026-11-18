@@ -6,6 +6,7 @@ import uuid
 from pathlib import Path
 
 import httpx
+import jwt
 from agent_framework import (
     Agent,
     BaseChatClient,
@@ -25,7 +26,8 @@ from adapters.copilot_sdk.provider import RegistrySkillClient
 from adapters.core import Registry
 from adapters.core.foundry import FoundryTransport
 from gateway.app import ForwardCredential
-from governance.lease import issue
+from governance.execution import profile_binding, sign_execution
+from governance.lease import LeaseError, issue
 from governance.lease.keyvault import KeyVaultSigner
 from governance.middleware.maf import LeaseMiddleware, lease_headers
 from governance.runtime import application, body
@@ -260,13 +262,51 @@ async def prepare(request):
     return runtime, message, call, signer
 
 
+@app.post("/h9b/execution-assertions")
+async def execution_assertion(request: Request):
+    runtime = request.app.state.runtime
+    await runtime.authenticate(request.headers.get("authorization"), gateway_only=True)
+    message = await body(request)
+    try:
+        lease = message["lease"]
+        if not isinstance(lease, str) or len(lease) > 16000:
+            raise LeaseError("Missing or oversized lease")
+        untrusted = jwt.decode(lease, options={"verify_signature": False})
+        call = runtime.call(
+            message["capability_id"],
+            message["arguments"],
+            untrusted.get("agent_identity"),
+            untrusted.get("task_id"),
+            untrusted.get("approver"),
+        )
+        if call.entry["id"] not in {"mock.create_ticket", "mock.deploy_release"}:
+            raise LeaseError("Not a provider execution capability")
+        if runtime.policy.evaluate(call).action != "allow":
+            raise LeaseError("Execution policy denied")
+        binding = profile_binding(runtime.bindings, call.entry["id"])
+        claims = await runtime.verify_lease(lease, call, binding)
+        started = time.perf_counter()
+        signer = KeyVaultSigner(runtime.config["key_id"], runtime.credential, runtime.client)
+        token = await sign_execution(lease, claims, signer)
+        return {
+            "execution_assertion": token,
+            "signing_ms": (time.perf_counter() - started) * 1000,
+        }
+    except (LeaseError, jwt.PyJWTError, KeyError, TypeError, ValueError) as error:
+        raise HTTPException(403, "Execution assertion denied") from error
+
+
+@app.post("/h9b/leases")
 @app.post("/leases")
 async def leases(request: Request):
     runtime, message, call, signer = await prepare(request)
     audit = []
-    middleware = LeaseMiddleware(
-        runtime.policy, signer, runtime.entries, runtime.bindings, audit.append
+    bindings = (
+        {name: profile_binding(runtime.bindings, name) for name in runtime.bindings}
+        if request.url.path == "/h9b/leases"
+        else runtime.bindings
     )
+    middleware = LeaseMiddleware(runtime.policy, signer, runtime.entries, bindings, audit.append)
     captured = {}
     context = FunctionInvocationContext(
         function=type(
@@ -288,7 +328,7 @@ async def leases(request: Request):
     token = captured.get("X-Capability-Lease")
     if message.get("expired_fixture"):
         token, expired_claims = await issue(
-            call, runtime.bindings[call.entry["id"]], signer, clock=lambda: time.time() - 180
+            call, bindings[call.entry["id"]], signer, clock=lambda: time.time() - 180
         )
         audit[-1].update(
             lease_id=expired_claims["jti"],
@@ -308,6 +348,17 @@ async def responses(request: Request):
     return await run_fixture(runtime, message, call, signer, request.headers["authorization"])
 
 
+@app.post("/h9b/responses")
+async def profile_responses(request: Request):
+    runtime, message, call, signer = await prepare(request)
+    if call.entry["id"] not in {"mock.create_ticket", "mock.deploy_release"}:
+        raise HTTPException(403, "Only the two synthetic leased profile fixtures")
+    authorization = request.headers.get("x-gateway-authorization", "")
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(403, "Gateway-audience caller token required")
+    return await run_fixture(runtime, message, call, signer, authorization, profile=True)
+
+
 class TimingOnly(FunctionMiddleware):
     def __init__(self, audit):
         self.audit = audit
@@ -318,11 +369,18 @@ class TimingOnly(FunctionMiddleware):
         self.audit.append({"dispatch_ms": (time.perf_counter() - start) * 1000})
 
 
-async def run_fixture(runtime, message, call, signer, authorization, *, preissued=None):
+async def run_fixture(
+    runtime, message, call, signer, authorization, *, preissued=None, profile=False
+):
     audit = []
     gateway_timings = {}
     started = time.perf_counter()
-    carriage = message.get("carriage", "header")
+    carriage = message.get("carriage", "reserved" if profile else "header")
+    bindings = (
+        {name: profile_binding(runtime.bindings, name) for name in runtime.bindings}
+        if profile
+        else runtime.bindings
+    )
 
     def headers(_kwargs):
         return {
@@ -341,12 +399,18 @@ async def run_fixture(runtime, message, call, signer, authorization, *, preissue
     def parse_result(result):
         value = result.model_dump(by_alias=True)
         gateway_timings.update(value.get("_meta", {}).get("governance", {}))
+        gateway_timings.update(value.get("_meta", {}).get("h9b", {}))
+        gateway_timings.update(value.get("_meta", {}).get("backend", {}))
         return json.dumps(value.get("structuredContent") or value.get("content"))
 
     try:
         async with MCPStreamableHTTPTool(
             name="governed",
-            url=runtime.config["gateway_url"] + ("/baseline/mcp" if preissued else "/mcp"),
+            url=(
+                runtime.config["h9b_gateway_urls"][call.entry["risk_tier"]]
+                if profile
+                else runtime.config["gateway_url"] + ("/baseline/mcp" if preissued else "/mcp")
+            ),
             header_provider=headers,
             load_prompts=False,
             parse_tool_results=parse_result,
@@ -354,7 +418,11 @@ async def run_fixture(runtime, message, call, signer, authorization, *, preissue
                 ["_capability_lease"] if carriage == "reserved" else []
             ),
         ) as tool:
-            name = call.entry["id"].removeprefix("mock.")
+            name = (
+                call.entry["risk_tier"] + "_" + bindings[call.entry["id"]]["tool_name"]
+                if profile
+                else call.entry["id"].removeprefix("mock.")
+            )
             functions = [f for f in tool.functions if f.name == name]
             if len(functions) != 1:
                 raise ValueError("Selected tool missing or ambiguous")
@@ -364,7 +432,7 @@ async def run_fixture(runtime, message, call, signer, authorization, *, preissue
                     runtime.policy,
                     signer,
                     runtime.entries,
-                    runtime.bindings,
+                    bindings,
                     audit.append,
                     carriage=carriage,
                 )

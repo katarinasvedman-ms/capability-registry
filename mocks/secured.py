@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import json
+import time
 
 from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 
+from governance.execution import profile_binding, verify_execution
 from governance.lease import LeaseError, canonical_inputs
 from governance.runtime import application, body
 from mocks.protocol import dispatch
@@ -14,6 +16,7 @@ app = application()
 
 @app.post("/mcp")
 async def mcp(request: Request):
+    started = time.perf_counter()
     runtime = request.app.state.runtime
     message = await body(request)
     if message.get("method") != "tools/call":
@@ -28,9 +31,11 @@ async def mcp(request: Request):
     context = params.get("_meta", {}).get("capability-registry/context", {})
     record = {"service": "mock", "request": message, "accepted": False}
     try:
-        await runtime.authenticate(
-            "Bearer " + context.get("gateway_assertion", ""), gateway_only=True
-        )
+        profile = context.get("provider_profile") == "h9b"
+        if not profile:
+            await runtime.authenticate(
+                "Bearer " + context.get("gateway_assertion", ""), gateway_only=True
+            )
         capability = "mock." + params["name"]
         call = runtime.call(
             capability,
@@ -43,13 +48,33 @@ async def mcp(request: Request):
         if decision.action != "allow":
             raise LeaseError("Mock policy denied")
         if decision.lease_required:
-            claims = await runtime.verify_lease(
-                context.get("lease"), call, runtime.bindings[capability]
+            binding = (
+                profile_binding(runtime.bindings, capability)
+                if profile
+                else runtime.bindings[capability]
             )
+            claims = await runtime.verify_lease(context.get("lease"), call, binding)
+            if profile:
+                verify_execution(
+                    context.get("execution_assertion"),
+                    runtime.public_key,
+                    runtime.config["key_id"],
+                    context["lease"],
+                    claims,
+                )
             await runtime.consume(claims["jti"], "mock", claims["exp"])
             record["lease_id"] = claims["jti"]
+        elif profile:
+            raise LeaseError("Profile execution requires a signed lease and assertion")
+        verification_ms = (time.perf_counter() - started) * 1000
         params["arguments"] = json.loads(canonical_inputs(call.inputs, call.entry["inputs"]))
+        business_started = time.perf_counter()
         result = dispatch(message)
+        result.setdefault("_meta", {})["backend"] = {
+            "backend_verification_ms": verification_ms,
+            "backend_business_ms": (time.perf_counter() - business_started) * 1000,
+            "backend_total_ms": (time.perf_counter() - started) * 1000,
+        }
         record.update(accepted=True, response=result)
         runtime.audit(record)
         return {"jsonrpc": "2.0", "id": message.get("id"), "result": result}

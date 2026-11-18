@@ -5,16 +5,34 @@ import hashlib
 import time
 from types import SimpleNamespace
 
+import jwt
 from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 
 from adapters.core import Registry
 from adapters.core.foundry import FoundryTransport
+from governance.execution import profile_binding
 from governance.lease import LeaseError, input_hash
 from governance.lease.contract import pin_hash
 from governance.runtime import application, body, handshake
 
 app = application()
+
+
+@app.post("/h9b/hook-capture")
+async def hook_capture(request: Request):
+    runtime = request.app.state.runtime
+    caller = await runtime.authenticate(request.headers.get("authorization"), upstream_only=True)
+    payload = await body(request)
+    runtime.audit(
+        {
+            "service": "hook-capture",
+            "transport_identity": caller["oid"],
+            "request_headers": dict(request.headers),
+            "payload": payload,
+        }
+    )
+    raise HTTPException(403, "H9b capture only; never authorizes execution")
 
 
 @app.post("/benchmark/prepare")
@@ -231,3 +249,124 @@ async def mcp(request: Request):
     except Exception as error:
         runtime.audit({**record, "outcome": "upstream_failed", "reason": type(error).__name__})
         raise HTTPException(502, "Upstream failed closed") from error
+
+
+@app.post("/h9b/mcp/{view}")
+async def verifier_profile(view: str, request: Request):
+    started = time.perf_counter()
+    runtime = request.app.state.runtime
+    upstream = await runtime.authenticate(request.headers.get("authorization"), upstream_only=True)
+    views = {
+        "general": ["mock.create_ticket", "mock.get_build_status"],
+        "privileged": ["mock.deploy_release"],
+    }
+    if view not in views:
+        raise HTTPException(404, "Unknown provider view")
+    message = await body(request)
+    if message.get("method") != "tools/call":
+        tools = []
+        for capability in views[view]:
+            entry = runtime.entries[capability]
+            schema = copy.deepcopy(entry["inputs"])
+            schema["properties"]["_capability_lease"] = {"type": "string"}
+            tools.append(
+                {
+                    "name": runtime.bindings[capability]["tool_name"],
+                    "description": entry["description"],
+                    "inputSchema": schema,
+                }
+            )
+        result = handshake(message, tools)
+        return (
+            Response(status_code=202)
+            if "id" not in message
+            else {"jsonrpc": "2.0", "id": message["id"], "result": result}
+        )
+    params = message.get("params", {})
+    capability = next(
+        (name for name in views[view] if runtime.bindings[name]["tool_name"] == params.get("name")),
+        None,
+    )
+    if capability is None:
+        raise HTTPException(403, "Tool outside provider view")
+    inputs = copy.deepcopy(params.get("arguments", {}))
+    reserved = inputs.pop("_capability_lease", None)
+    lease = request.headers.get("x-capability-lease") or reserved
+    record = {
+        "service": "h9b-verifier",
+        "view": view,
+        "transport_identity": upstream["oid"],
+        "capability_id": capability,
+        "request": message,
+        "request_headers": dict(request.headers),
+        "accepted": False,
+    }
+    try:
+        if not isinstance(lease, str) or len(lease) > 16000:
+            raise LeaseError("Missing or oversized lease")
+        # Claims select a verification context; none is trusted until verify_lease succeeds.
+        untrusted = jwt.decode(lease, options={"verify_signature": False})
+        call = runtime.call(
+            capability,
+            inputs,
+            untrusted.get("agent_identity"),
+            untrusted.get("task_id"),
+            untrusted.get("approver"),
+        )
+        binding = profile_binding(runtime.bindings, capability)
+        verify_started = time.perf_counter()
+        if runtime.policy.evaluate(call).action != "allow":
+            raise LeaseError("Policy denied lease subject")
+        claims = await runtime.verify_lease(lease, call, binding)
+        await runtime.consume(claims["jti"], "gateway", claims["exp"])
+        verification_ms = (time.perf_counter() - verify_started) * 1000
+        proof = await runtime.credential.get_token("https://management.azure.com/.default")
+        assertion_started = time.perf_counter()
+        assertion_response = await runtime.client.post(
+            runtime.config["consumer_url"] + "/h9b/execution-assertions",
+            headers={"Authorization": "Bearer " + proof.token},
+            json={"capability_id": capability, "arguments": inputs, "lease": lease},
+        )
+        assertion_response.raise_for_status()
+        assertion = assertion_response.json()
+        assertion_ms = (time.perf_counter() - assertion_started) * 1000
+        context = {
+            "provider_profile": "h9b",
+            "lease": lease,
+            "identity": call.identity,
+            "task_id": call.task_id,
+            "approver": call.approver,
+            "approval_id": claims["jti"] if call.approver else None,
+            "execution_assertion": assertion["execution_assertion"],
+        }
+        transport = FoundryTransport(ForwardCredential(request.headers["authorization"][7:]))
+        toolbox_started = time.perf_counter()
+        try:
+            result = await transport.call_tool(
+                binding, binding["tool_name"], inputs, context=context
+            )
+        finally:
+            await transport.aclose()
+        timings = {
+            "verification_ms": verification_ms,
+            "assertion_hop_ms": assertion_ms,
+            "assertion_signing_ms": assertion["signing_ms"],
+            "toolbox_ms": (time.perf_counter() - toolbox_started) * 1000,
+            "verifier_total_ms": (time.perf_counter() - started) * 1000,
+        }
+        record.update(
+            accepted=True,
+            lease_id=claims["jti"],
+            identity=call.identity,
+            timings=timings,
+            http=transport.evidence,
+        )
+        runtime.audit(record)
+        result.setdefault("_meta", {})["h9b"] = timings
+        return {"jsonrpc": "2.0", "id": message.get("id"), "result": result}
+    except (LeaseError, jwt.PyJWTError, HTTPException, ValueError, TypeError, KeyError) as error:
+        runtime.audit({**record, "reason": type(error).__name__, "status": 403})
+        raise HTTPException(403, "Provider lease rejected") from error
+    except Exception as error:
+        runtime.audit({**record, "reason": type(error).__name__, "status": 502})
+        raise HTTPException(502, "Provider failed closed") from error
